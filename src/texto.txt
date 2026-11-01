@@ -1,0 +1,39 @@
+<div class="projects-grid">
+
+            <!-- PROJETO 01 -->
+
+            <article class="project-card" data-category="">
+
+                <a href="" class="project-image">
+                    <img src="">
+
+                    <span class="project-image-overlay">
+                        <i data-lucide="arrow-up-right"></i>
+                    </span>
+                </a>
+
+                <div class="project-info">
+
+                    <div class="project-meta">
+                        <span>POWER BI</span>
+                        <span>PROJETO 01</span>
+                    </div>
+
+                    <h3>Dashboard de Vendas</h3>
+
+                    <p>
+                        Análise de desempenho comercial, produtos
+                        mais vendidos, faturamento e comparação
+                        entre períodos.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Power BI</span>
+                        <span>DAX</span>
+                        <span>Modelagem</span>
+                    </div>
+
+                    <a href="assets/projects/vendas.pdf" class="project-link">
+                      Ver projeto
+                    <i data-lucide="arrow-up-right"></i>
+                    </a>

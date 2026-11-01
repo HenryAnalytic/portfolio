@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça os projetos de análise de dados desenvolvidos por Henry.">
+    <title>Projetos | Henry</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projetos.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+
+<header class="site-header">
+    <a class="brand" href="../index.html#inicio" aria-label="Henry — início">
+        <span class="brand-mark">
+            <i data-lucide="chart-no-axes-combined"></i>
+        </span>
+        <span>HENRY<span class="brand-dot">.</span></span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+        <a class="nav-link" href="../index.html#inicio">Início</a>
+        <a class="nav-link active" href="#projetos">Projetos</a>
+        <a class="nav-link" href="../index.html#sobre">Sobre mim</a>
+        <a class="nav-link" href="../index.html#contato">Contato</a>
+    </nav>
+</header>
+
+<main class="projects-page">
+
+    <!-- CATÁLOGO -->
+
+    <section class="projects-catalog" id="projetos">
+        <div class="catalog-heading">
+            <div>
+                <span class="section-eyebrow">EXPLORAR</span>
+                <h2>Todos os projetos<span>.</span></h2>
+            </div>
+        </div>
+
+        
+        <!-- FILTROS -->
+
+        <div class="project-filters">
+
+            <button class="filter-btn active" data-filter="todos">
+                Todos
+            </button>
+
+            <button class="filter-btn" data-filter="powerbi">
+                Power BI
+            </button>
+
+            <button class="filter-btn" data-filter="excel">
+                Excel
+            </button>
+
+            <button class="filter-btn" data-filter="outros">
+                Outros
+            </button>
+
+        </div>
+
+
+        <!-- GRADE DE PROJETOS -->
+
+        
+
+        <p class="projects-empty" hidden>
+            Nenhum projeto encontrado nesta categoria.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer"><a class="brand" href="#inicio"><span class="brand-mark"><i data-lucide="chart-no-axes-combined"></i></span><span>HENRY<span class="brand-dot">.</span></span></a><p>Feito com curiosidade e vontade de aprender.</p><a class="back-top" href="#inicio">VOLTAR AO TOPO ↑</a><span class="footer-copy">© <span id="year"></span> HENRY • PORTFÓLIO DE DADOS</span></footer>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+    const filters = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".project-card");
+    const emptyMessage = document.querySelector(".projects-empty");
+
+    filters.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const category = button.dataset.filter;
+            let visibleCount = 0;
+
+            filters.forEach(filter => {
+                filter.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            cards.forEach(card => {
+
+                const matches =
+                    category === "todos" ||
+                    card.dataset.category === category;
+
+                card.hidden = !matches;
+
+                if (matches) visibleCount++;
+
+            });
+
+            emptyMessage.hidden = visibleCount !== 0;
+
+        });
+
+    });
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+});
+</script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
